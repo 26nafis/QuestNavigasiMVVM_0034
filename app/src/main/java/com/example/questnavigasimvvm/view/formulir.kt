@@ -4,8 +4,12 @@ import android.graphics.Color
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.OutlinedTextField
@@ -25,21 +29,21 @@ import com.example.questnavigasimvvm.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun formIsian(
-    jenisK:List<android.R.string> = listOf("Laki-Laki","perempuan"),
+fun FormIsian(
+    jenisK:List<String> = listOf("Laki-laki","Perempuan"),
     OnSubmitBtnClick : () -> Unit
 ){
     Scaffold(modifier = Modifier,
         {
             TopAppBar(
-                title = {Text(stringResource(id=R.string.home), color = color.White)},
+                title = {Text(stringResource(R.string.home), color = Color.White)},
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
-                colorResource(id = R.color.teal_700))
-            )
-        }) {isiruang ->
+                    colorResource(R.color.teal_700))
+            )}
+    ){ isiRuang ->
         Column(modifier = Modifier.padding(isiRuang),
             verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally){
+            horizontalAlignment = Alignment.CenterHorizontally) {
             OutlinedTextField(
                 value = "",
                 singleLine = true,
@@ -54,7 +58,7 @@ fun formIsian(
                 .width(250.dp), thickness = dimensionResource(R.dimen.thickness_divider), color = Color.Red)
             Row {
                 jenisK.forEach {
-                    item ->
+                        item ->
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         RadioButton(
                             selected = false,
@@ -66,7 +70,19 @@ fun formIsian(
             }
             HorizontalDivider(modifier = Modifier
                 .padding(20.dp)
-                .width(250.dp), thickness = dimensionResource(R.dimen.thickness_divider), color = Color.Red)
+                .width(250.dp),
+                thickness = 1.dp,
+                color = Color.Red
+            )
+            OutlinedTextField(
+                value = "",
+                singleLine = true,
+                modifier = Modifier
+                    .width(250.dp),
+                label = {Text(text = "Alamat")},
+                onValueChange = {},
+            )
+
         }
     }
 }
