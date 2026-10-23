@@ -14,26 +14,31 @@ import com.example.questnavigasimvvm.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun formIsian(
-    jenisK:List<string> = listOf("Laki-Laki","perempuan"),
+fun FormIsian(
+    jenisK:List<String> = listOf("Laki-laki","Perempuan"),
     OnSubmitBtnClick : () -> Unit
 ){
     Scaffold(modifier = Modifier,
         {
             TopAppBar(
-                title = {Text(stringResource(id=R.string.home), color = color.White)},
+                title = {Text(stringResource(R.string.home), color = Color.White)},
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
-                colorResource(id = R.color.teal_700))
-            )
-        }) {isiruang ->
+                    colorResource(R.color.teal_700))
+            )}
+    ){ isiRuang ->
         Column(modifier = Modifier.padding(isiRuang),
             verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally){
+            horizontalAlignment = Alignment.CenterHorizontally) {
             OutlinedTextField(
                 value = "",
-                sin
-
+                singleLine = true,
+                modifier = Modifier
+                    .padding(top = 20.dp)
+                    .width(250.dp),
+                label = {Text(text = "Nama Lengkap")},
+                onValueChange = {}
             )
+
         }
     }
 }
