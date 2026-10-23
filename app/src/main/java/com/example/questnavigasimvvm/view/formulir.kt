@@ -18,7 +18,13 @@ fun formIsian(
     jenisK:List<string> = listOf("Laki-Laki","perempuan"),
     OnSubmitBtnClick : () -> Unit
 ){
-
+    Scaffold(modifier = Modifier,
+        {
+            TopAppBar(
+                title = {Text(stringResource(id=R.string.home), color = color.White)},
+                colors = TopAppBarDefaults.mediumTopAppBarColors(
+                colorResource(id = R.color.teal_700))
+            )
         }) {
 
             )
