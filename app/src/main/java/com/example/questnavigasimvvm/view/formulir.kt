@@ -25,7 +25,13 @@ fun formIsian(
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                 colorResource(id = R.color.teal_700))
             )
-        }) {
+        }) {isiruang ->
+        Column(modifier = Modifier.padding(isiRuang),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally){
+            OutlinedTextField(
+                value = "",
+                sin
 
             )
         }
